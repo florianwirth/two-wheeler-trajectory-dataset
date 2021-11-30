@@ -1,7 +1,8 @@
 
 import st2w_lib
 ## Initialization
-stw2 = st2w_lib.st2w(dataroot='../data/')
+usePointClouds = False
+stw2 = st2w_lib.st2w(dataroot='../data/', usePointClouds=usePointClouds)
 
 ## Print the labels from the three vehicles
 print(stw2.getLabel('bike'))
@@ -17,9 +18,9 @@ print(stw2.getLabel('scooter', step))
 
 ## Visualize the dataset
 
-
 ## Visualize the lidar-data with the labeled bounding-box
-stw2.Visualizer.view_pointcloud(stw2.pcds['bike'][step], stw2.bboxes['bike'][step])
+if usePointClouds:
+    stw2.Visualizer.view_pointcloud(stw2.pcds['bike'][step], stw2.bboxes['bike'][step])
 
 
 ## Plot the trajecotory of the bike with the velocity colored
