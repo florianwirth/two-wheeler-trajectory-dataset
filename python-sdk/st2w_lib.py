@@ -26,11 +26,12 @@ class st2w:
         "roll_",
         "roll"]
 
-    def __init__(self, dataroot: str = '../data/'):
+    def __init__(self, dataroot: str = '../data/', usePointClouds=False):
         self.dataroot = dataroot
         self.labelContainer = dataLoader.LabelContainer(self.dataroot)
         self.labels = self.get_st2w_dict([self.labelContainer])
-        self.pcds = self.get_pointcloud_directories()
+        if usePointClouds:
+            self.pcds = self.get_pointcloud_directories()
         self.bboxes = self.getBboxes()
         print()
 
