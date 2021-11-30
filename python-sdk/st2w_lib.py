@@ -1,13 +1,12 @@
-import dataLoader
 import os
 from os import listdir
+
+import dataLoader
 import matplotlib.pyplot as plt
+import numpy as np
+import open3d as o3d
 from matplotlib import cm
 from matplotlib.collections import LineCollection
-import numpy as np
-from mpl_toolkits.mplot3d import Axes3D
-import open3d as o3d
-from pyquaternion import Quaternion
 
 
 class st2w:
@@ -113,7 +112,7 @@ class st2w:
 
     class Visualizer:
         @staticmethod
-        def plot_trajectory_colored(x, y, value, label, colormap, min_max=None):
+        def plot_trajectory_colored(x, y, value, label, colormap, save_path=None, min_max=None):
             """
             plot a given trajectory with a attribute colored
             :param x: x-values of trajectory
@@ -144,23 +143,29 @@ class st2w:
             ax.set_ylabel('y in m')
             cbar = fig.colorbar(line, ax=ax)
             cbar.ax.set_ylabel(label)
-            plt.show()
+            if save_path is not None:
+                plt.savefig(save_path)
+            else:
+                plt.show()
+            plt.close()
 
         @staticmethod
-        def plot_trajectory_velocity(labels):
+        def plot_trajectory_velocity(labels, save_path=None):
             st2w.Visualizer.plot_trajectory_colored(labels['x'],
                                                     labels['y'],
                                                     labels['v'] / 3.6,
                                                     "Velocity in m/s",
-                                                    'viridis')
+                                                    'viridis',
+                                                    save_path)
 
         @staticmethod
-        def plot_trajectory_rollangle(labels):
+        def plot_trajectory_rollangle(labels, save_path=None):
             st2w.Visualizer.plot_trajectory_colored(labels['x'],
                                                     labels['y'],
                                                     np.rad2deg(labels['roll']),
                                                     "Roll angle in degree",
-                                                    'rainbow')
+                                                    'rainbow',
+                                                    save_path)
 
         @staticmethod
         def view_pointcloud(pcd_path, bbox):
