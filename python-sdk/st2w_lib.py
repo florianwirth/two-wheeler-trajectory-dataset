@@ -113,7 +113,7 @@ class st2w:
 
     class Visualizer:
         @staticmethod
-        def plot_trajectory_colored(x, y, value, label, colormap, save_path=None, min_max=None):
+        def plot_trajectory_colored(x, y, value, label, colormap, figure_name, save_path=None, min_max=None):
             """
             plot a given trajectory with a attribute colored
             :param x: x-values of trajectory
@@ -142,6 +142,7 @@ class st2w:
             ax.axis('equal')
             ax.set_xlabel('x in m')
             ax.set_ylabel('y in m')
+            ax.set_title(figure_name)
             cbar = fig.colorbar(line, ax=ax)
             cbar.ax.set_ylabel(label)
             if save_path is not None:
@@ -151,21 +152,23 @@ class st2w:
             plt.close()
 
         @staticmethod
-        def plot_trajectory_velocity(labels, save_path=None):
+        def plot_trajectory_velocity(labels, figure_name='Two-wheeler', save_path=None):
             st2w.Visualizer.plot_trajectory_colored(labels['x'],
                                                     labels['y'],
                                                     labels['v'] / 3.6,
                                                     "Velocity in m/s",
                                                     'viridis',
+                                                    figure_name,
                                                     save_path)
 
         @staticmethod
-        def plot_trajectory_rollangle(labels, save_path=None):
+        def plot_trajectory_rollangle(labels, figure_name='Two-wheeler', save_path=None):
             st2w.Visualizer.plot_trajectory_colored(labels['x'],
                                                     labels['y'],
                                                     np.rad2deg(labels['roll']),
                                                     "Roll angle in degree",
                                                     'rainbow',
+                                                    figure_name,
                                                     save_path)
 
         @staticmethod
@@ -173,7 +176,7 @@ class st2w:
             pcd = o3d.io.read_point_cloud(pcd_path)
             pcd = np.asarray(pcd.points)
             for i, p in enumerate(pcd):
-                 pcd[i][1] *= -1
+                pcd[i][1] *= -1
             st2w.Visualizer.display_frame_statistics(pcd, bbox)
 
         axes_limits = [
