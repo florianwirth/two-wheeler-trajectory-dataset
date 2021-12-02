@@ -24,26 +24,26 @@ if usePointClouds:
 
 
 ## Plot the trajecotory of the bike with the velocity colored
-stw2.Visualizer.plot_trajectory_velocity(stw2.getLabel('bike'))
-stw2.Visualizer.plot_trajectory_velocity(stw2.getLabel('bike'), 'bike_velocity')
+stw2.Visualizer.plot_trajectory_velocity(stw2.getLabel('bike'), 'Cyclist')
+stw2.Visualizer.plot_trajectory_velocity(stw2.getLabel('bike'), 'Cyclist', 'bike_velocity')
 
 ## Plot the trajecotory of the bike with the roll angle colored
-stw2.Visualizer.plot_trajectory_rollangle(stw2.getLabel('bike'))
-stw2.Visualizer.plot_trajectory_rollangle(stw2.getLabel('bike'), 'bike_rollangle')
+stw2.Visualizer.plot_trajectory_rollangle(stw2.getLabel('bike'), 'Cyclist')
+stw2.Visualizer.plot_trajectory_rollangle(stw2.getLabel('bike'), 'Cyclist', 'bike_rollangle')
 
 ## Plot the trajecotory of the motorbike with the velocity colored
-stw2.Visualizer.plot_trajectory_velocity(stw2.getLabel('motorbike'))
-stw2.Visualizer.plot_trajectory_velocity(stw2.getLabel('motorbike'), 'motorbike_velocity')
+stw2.Visualizer.plot_trajectory_velocity(stw2.getLabel('motorbike'), 'Motorcyclist')
+stw2.Visualizer.plot_trajectory_velocity(stw2.getLabel('motorbike'), 'Motorcyclist', 'motorbike_velocity')
 
 ## Plot the trajecotory of the motorbike with the roll angle colored
-stw2.Visualizer.plot_trajectory_rollangle(stw2.getLabel('motorbike'))
-stw2.Visualizer.plot_trajectory_rollangle(stw2.getLabel('motorbike'), 'motorbike_rollangle')
+stw2.Visualizer.plot_trajectory_rollangle(stw2.getLabel('motorbike'), 'Motorcyclist')
+stw2.Visualizer.plot_trajectory_rollangle(stw2.getLabel('motorbike'), 'Motorcyclist', 'motorbike_rollangle')
 
 ## Plot the trajecotory of the scooter with the velocity colored
-stw2.Visualizer.plot_trajectory_velocity(stw2.getLabel('scooter'))
-stw2.Visualizer.plot_trajectory_velocity(stw2.getLabel('scooter'), 'scooter_velocity')
+stw2.Visualizer.plot_trajectory_velocity(stw2.getLabel('scooter'), 'Electric Scooter')
+stw2.Visualizer.plot_trajectory_velocity(stw2.getLabel('scooter'), 'Electric Scooter', 'scooter_velocity')
 
 ## Plot the trajecotory of the scooter with the roll angle colored
-stw2.Visualizer.plot_trajectory_rollangle(stw2.getLabel('scooter'))
-stw2.Visualizer.plot_trajectory_rollangle(stw2.getLabel('scooter'), 'scooter_rollangle')
+stw2.Visualizer.plot_trajectory_rollangle(stw2.getLabel('scooter'), 'Electric Scooter')
+stw2.Visualizer.plot_trajectory_rollangle(stw2.getLabel('scooter'), 'Electric Scooter', 'scooter_rollangle')
 
